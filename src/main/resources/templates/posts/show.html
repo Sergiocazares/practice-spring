@@ -1,19 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/partials :: head">
-</head>
+<head th:replace="partials/head :: header-links"></head>
 <body>
+<nav th:replace="partials/navbar_loggedIn :: navbar2"></nav>
 
-<nav th:replace="partials/partials :: navbar"></nav>
+<h1>Here is a single post !</h1>
+<h3 th:text="${post.title}"></h3>
+<p th:text="'Posted by ' + ${post.user.email}"></p>
+<p th:text="${post.body}"></p>
 
-<div class="container">
-    <h1 th:text="${post.getTitle()}"></h1>
-    <p th:text="${post.getBody()}"></p>
-</div>
+<div th:replace="partials/scripts :: assets"></div>
+<a th:href="@{|/posts/${post.id}/edit|}">Edit Post</a>
 
-<footer th:replace="partials/partials :: footer"></footer>
-
-<script th:replace="partials/partials :: jquery-script"></script>
-<script th:replace="partials/partials :: bootstrap-script"></script>
+<div th:replace="partials/scripts :: assets"></div>
 </body>
 </html>

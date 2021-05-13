@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head :: header-links"></head>
+
+<body>
+
+<nav th:replace="partials/navbar_loggedIn :: navbar2"></nav>
+
+<h1>Edit Post</h1>
+<form th:action="@{/posts/{id}/edit(id=${post.id})}" th:method="POST" th:object="${post}">
+    Title:
+    <input th:field="*{title}" />
+    <br />
+    Body:
+    <textarea th:field="*{body}"></textarea>
+
+    <input class="btn btn-block btn-primary" type="submit" value="Update post"/>
+</form>
+
+<form th:action="@{|/posts/${post.id}/delete|}" th:method="POST">
+    <button>Delete Post</button>
+</form>
+<div th:replace="partials/scripts :: assets"></div>
+</body>
+</html>
