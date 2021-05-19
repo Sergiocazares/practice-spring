@@ -12,7 +12,7 @@ class HelloController {
     public String hello() {
         return "Hello from Spring!";
     }
-//
+
     @GetMapping("/hello/{name}")
     @ResponseBody
     public  String sayHello(@PathVariable String name){
